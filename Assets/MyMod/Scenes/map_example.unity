@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 315803015}
   - component: {fileID: 315803014}
   - component: {fileID: 315803013}
+  - component: {fileID: 315803017}
   m_Layer: 16
   m_Name: floor
   m_TagString: Untagged
@@ -267,6 +268,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &315803017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315803012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8983729a7f596eb4496d229d3719ca9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundMaterialType: 0
 --- !u!1 &330704850
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +383,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 938478847}
-  - component: {fileID: 938478846}
+  - component: {fileID: 938478848}
   m_Layer: 0
   m_Name: MusicOverride
   m_TagString: Untagged
@@ -377,19 +391,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &938478846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 938478845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b5ad0befe477ff49b49303fe223f644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: 1723da795c8ce3146983502a396ad2a8, type: 3}
 --- !u!4 &938478847
 Transform:
   m_ObjectHideFlags: 0
@@ -405,6 +406,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &938478848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938478845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c4d48a4ddb6aa942b55376bdf9b116c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: 1723da795c8ce3146983502a396ad2a8, type: 3}
 --- !u!1001 &1119936746
 PrefabInstance:
   m_ObjectHideFlags: 0

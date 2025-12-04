@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6703997574782152911}
-  m_Layer: 0
+  - component: {fileID: 5887617643730813907}
+  m_Layer: 16
   m_Name: TestPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6703997574782152911
 Transform:
@@ -37,6 +38,19 @@ Transform:
   - {fileID: 1951381076222643594}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5887617643730813907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032488770400809951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8983729a7f596eb4496d229d3719ca9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundMaterialType: 0
 --- !u!1 &1239596427127799891
 GameObject:
   m_ObjectHideFlags: 0
@@ -47,12 +61,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6097928275168619212}
   - component: {fileID: 5580738585484221577}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Collider (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6097928275168619212
 Transform:
@@ -100,12 +114,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4766621165372736104}
   - component: {fileID: 7098699754990781289}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Collider (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4766621165372736104
 Transform:
@@ -153,12 +167,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1951381076222643594}
   - component: {fileID: 3957448316906860581}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Collider (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1951381076222643594
 Transform:
@@ -206,12 +220,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2326303122965879486}
   - component: {fileID: 1654974946203165431}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2326303122965879486
 Transform:
@@ -259,12 +273,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5322471483156450884}
   - component: {fileID: 3042677859172807986}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Collider (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5322471483156450884
 Transform:
@@ -357,6 +371,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3e69923172f37a242853ba13e77f762b, type: 3}
       propertyPath: m_Name
       value: TestPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3e69923172f37a242853ba13e77f762b, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3e69923172f37a242853ba13e77f762b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
