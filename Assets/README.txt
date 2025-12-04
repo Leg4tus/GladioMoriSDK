@@ -1,0 +1,1 @@
+Rename the "MyMod" folder to something unique for every mod. Conflicting asset paths between different mods will cause issues to players.
