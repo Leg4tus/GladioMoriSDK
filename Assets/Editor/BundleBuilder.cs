@@ -119,7 +119,7 @@ public class BundleBuilder
 
 
     #region validatePrefabs
-    public static uint[] reservedAssetIDs = new uint[] { 3516282168, 802227567, 0 };
+    public static uint[] reservedAssetIDs = new uint[] { 3516282168, 802227567,0 ,2739848890, 191284963 };
     public static bool ValidatePrefabsInProject()
     {
         string[] prefabsGUIDs = AssetDatabase.FindAssets("t:prefab b:*");
