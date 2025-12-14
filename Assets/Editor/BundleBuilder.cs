@@ -1,5 +1,8 @@
+using Mirror;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -19,6 +22,12 @@ public class BundleBuilder
         if (!System.IO.Directory.Exists(outputPath))
             System.IO.Directory.CreateDirectory(outputPath);
 
+        if(!ValidatePrefabsInProject())
+        {
+            Debug.LogError("Asset validation failed. Asset bundles were not generated.");
+            return;
+        }
+
         ChangeAssetBundleNamesToUniqueNames();
 
         BuildPipeline.BuildAssetBundles(
@@ -29,6 +38,7 @@ public class BundleBuilder
         HandleBuildFiles();
         ChangeAssetBundleNamesBackToGeneric();
     }
+    #region assetBundleNames
 
     public static List<GladioMoriAsset> equipmentAssets = new List<GladioMoriAsset>(); 
     public static List<GladioMoriAsset> mapAssets = new List<GladioMoriAsset>();
@@ -85,7 +95,7 @@ public class BundleBuilder
 
         AssetDatabase.RemoveUnusedAssetBundleNames();
     }
-
+    #endregion
     public static void HandleBuildFiles()
     {
         HandleBuildFile(Path.Combine(outputPath, equipmentAssetBundleName), Path.Combine(outputPath, baseEquipmentBundleName));
@@ -106,4 +116,53 @@ public class BundleBuilder
             System.IO.File.Move(currentFilePath, newFilePath);
         }
     }
+
+
+    #region validatePrefabs
+    public static uint[] reservedAssetIDs = new uint[] { 3516282168, 802227567, 0 };
+    public static bool ValidatePrefabsInProject()
+    {
+        string[] prefabsGUIDs = AssetDatabase.FindAssets("t:prefab b:*");
+        Debug.Log($"Assets to validate: {prefabsGUIDs.Length}");
+        bool validationOK = true;
+        foreach (string assetGUID in prefabsGUIDs)
+        {
+
+            GladioMoriAsset gmAsset = new GladioMoriAsset
+            {
+                GUID = assetGUID,
+                Path = AssetDatabase.GUIDToAssetPath(assetGUID)
+            };
+            
+            try
+            {
+                GameObject gameObject = AssetDatabase.LoadAssetAtPath<GameObject>(gmAsset.Path);
+                NetworkIdentity identity = gameObject.GetComponent<NetworkIdentity>();
+                if(identity != null)
+                {
+                    
+                    Debug.Log($"assetID:{identity.assetId}"); 
+
+                    if (reservedAssetIDs.Contains(identity.assetId))
+                    {
+                        Debug.LogError($"Asset uses a reserved GUID. Recreate the asset by copying it and delete the old copy: {gmAsset.Path}");
+                        validationOK = false;
+                    }
+                }
+
+            }
+            catch(Exception ex)
+            {
+                Debug.LogWarning($"Validation failed for asset {assetGUID}");
+                Debug.LogWarning(ex);
+            }
+
+            
+        }
+
+
+        return validationOK;
+    }
+
+    #endregion
 }
