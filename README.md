@@ -144,17 +144,17 @@ Renaming the folder is important so that there are no conflicting asset paths wi
 - Create the mod in mod.io
 - Select relevant tags:
 - Moveset:
- - Should contain one or more moveset files with ".json" extension
+  - Should contain one or more moveset files with ".json" extension
 - Player skin:
- - Should contain one or more custom texture files with ".jpg", ".jpeg" or ".png" extension
+  - Should contain one or more custom texture files with ".jpg", ".jpeg" or ".png" extension
 - Local mod:
- - Should contain a dll mod that is not required by the clients in a multiplayer game. Server side mods even when altering multiplayer experience should be in this category
+  - Should contain a dll mod that is not required by the clients in a multiplayer game. Server side mods even when altering multiplayer experience should be in this category
 - Multiplayer mod:
- - Mods that are required by the clients and should be automatically downloaded.
+  - Mods that are required by the clients and should be automatically downloaded.
 - Arena:
- - Should contain a asset bundle called "maps". These are automatically loaded by clients when joining a server.
+  - Should contain a asset bundle called "maps". These are automatically loaded by clients when joining a server.
 - Equipment:
- - Should contain a asset bundle called "equipment". These are automatically loaded by clients when joining a server.
+  - Should contain a asset bundle called "equipment". These are automatically loaded by clients when joining a server.
  
 # The mod load order is:
 - Load modio subscribed maps
