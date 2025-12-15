@@ -9,7 +9,6 @@ public class Equipment : MonoBehaviour
     
 
     public Transform CenterOfMass;
-    public bool IsPainter = true;
 
     public BluntDamageDealer bluntDamageDealer;
 }
