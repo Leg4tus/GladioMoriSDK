@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8983729a7f596eb4496d229d3719ca9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoundMaterialType: 0
+  SoundMaterialType: 902
 --- !u!1 &330704850
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,6 +430,10 @@ PrefabInstance:
     - target: {fileID: 1032488770400809951, guid: 2a01f60e0feb6ac42a824c50d86a81b0, type: 3}
       propertyPath: m_Name
       value: TestPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 5887617643730813907, guid: 2a01f60e0feb6ac42a824c50d86a81b0, type: 3}
+      propertyPath: SoundMaterialType
+      value: 902
       objectReference: {fileID: 0}
     - target: {fileID: 6703997574782152911, guid: 2a01f60e0feb6ac42a824c50d86a81b0, type: 3}
       propertyPath: m_LocalPosition.x
