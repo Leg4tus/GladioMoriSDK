@@ -155,6 +155,21 @@ Renaming the folder is important so that there are no conflicting asset paths wi
   - Should contain a asset bundle called "maps". These are automatically loaded by clients when joining a server.
 - Equipment:
   - Should contain a asset bundle called "equipment". These are automatically loaded by clients when joining a server.
+
+# Getting your mod to console:
+
+- Make sure that your project is in a state that it builds the asset bundle correctly
+- Test your asset bundle locally
+- Create an asset package in unity of all your project files
+	- Assets->Export package...->Make sure everything is selected->Export...
+- Create a zip file that contains your asset package
+	- If your mod contains skins or movesets, include those on the root of the zip file as well
+- Upload your zip to modio. Select "Linux Server" as the only platform.
+- Remember to increment the version number
+	- If you update the windows package later yourself and don't increment the version number, there may be issues for the players
+- We will build the asset bundles for the different platforms and add them to your mod in modio
+
+You should not make changes to the existing scripts or add duplicates of them. The files should be in a state where all we need to do is click Tools->Build AssetBundles. 
  
 # The mod load order is:
 - Load modio subscribed maps
