@@ -94,5 +94,20 @@ namespace MoveClasses
         }
 
 
-    
+    [System.Serializable]
+    public class EquippedEquipment
+    {
+        
+        public int positionInt = 0;
+        
+        public int equipmentTypeInt = 0;
+        
+        public int equipmentStartHoldTypeInt = 0;
+       
+        public float equipmentStartHoldPosition = 0;
+        
+        public string equipmentPath = null;
+        
+    }
+
 }
