@@ -1,4 +1,5 @@
 using Mirror;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,12 +18,11 @@ public class BundleBuilder
     [MenuItem("Tools/Build AssetBundles")]
     public static void BuildAllBundles()
     {
-        
 
-        if (!System.IO.Directory.Exists(outputPath))
-            System.IO.Directory.CreateDirectory(outputPath);
 
-        if(!ValidatePrefabsInProject())
+        ValidateOutputPath();
+
+        if (!ValidatePrefabsInProject())
         {
             Debug.LogError("Asset validation failed. Asset bundles were not generated.");
             return;
@@ -165,4 +165,78 @@ public class BundleBuilder
     }
 
     #endregion
+
+    #region campaignBuild
+    [MenuItem("Tools/Build Campaigns")]
+    public static void BuildCampaigns()
+    {
+        
+        ValidateOutputPath();
+
+
+        List<CampaignItem> campaignItems = GetCampaignItems();
+
+        PrepareCampaignItems(campaignItems);
+        GenerateCampaigns(campaignItems);
+
+        Debug.Log("Campaigns built");
+    }
+
+    public static List<CampaignItem> GetCampaignItems()
+    {
+        List<CampaignItem> campaignItems = new List<CampaignItem>();
+        string[] campaignAssetGUIDs = AssetDatabase.FindAssets("t:CampaignItem");
+        foreach(string guid in campaignAssetGUIDs)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            campaignItems.Add(AssetDatabase.LoadAssetAtPath<CampaignItem>(path));
+        }
+
+        return campaignItems;
+    }
+
+    public static void PrepareCampaignItems(List<CampaignItem> campaignItems)
+    {
+        foreach (CampaignItem campaignItem in campaignItems)
+        {
+            foreach (FightItem fightItem in campaignItem.fightItems)
+            {
+                foreach (FightOpponent fightOpponent in fightItem.fightOpponents)
+                {
+                    if(fightOpponent.characterCustomizationSettings != null)
+                    {
+                        fightOpponent.characterCustomizationSettings.GenerateBase64FromImageTexture();
+                    }
+                }
+            }
+        }
+    }
+    public static void GenerateCampaigns(List<CampaignItem> campaignItems)
+    {
+        foreach (CampaignItem campaignItem in campaignItems)
+        {
+            SaveCampaignItemToJson(campaignItem);
+        }
+    }
+    public const string campaignFileType = "gmcampaign";
+    public static void SaveCampaignItemToJson(CampaignItem campaignItem)
+    {
+        // Convert the ScriptableObject fields into a JSON string
+        //string json = JsonUtility.ToJson(campaignItem, true);
+        string json = JsonConvert.SerializeObject(campaignItem, new JsonSerializerSettings
+        {
+            DefaultValueHandling = DefaultValueHandling.Ignore
+        });
+        
+        string filePath = Path.Combine(outputPath, $"{campaignItem.name}.{campaignFileType}");
+        File.WriteAllText(filePath, json);
+    }
+
+    #endregion
+
+    public static void ValidateOutputPath()
+    {
+        if (!System.IO.Directory.Exists(outputPath))
+            System.IO.Directory.CreateDirectory(outputPath);
+    }
 }
