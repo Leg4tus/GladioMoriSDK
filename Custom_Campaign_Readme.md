@@ -1,0 +1,173 @@
+# Basics:
+- Campaigns are created out of scriptable objects
+- Campaigns require these three objects:
+	- CampaignItem
+	- FightItem
+	- FightOpponent
+- You can create them in unity with "Right click folder"->Create->Singleplayer->CampaignItem/FightItem/FightOpponent
+
+
+# CampaignItem:
+- The name of the CampaignItem file will be the name of your campaign in game
+- Fight Items = List of fightItems that comprise the campaign 
+
+# FightItem:
+- Fight Title
+	- Name of the fight
+	- If left empty, will fetch the opponents name
+- Scene
+	- The name of the scene for the fight
+	- Needs to be the full path for modded scenes so that the game finds Items
+	- Example base game values:
+		- map_ArenaOfBlades
+		- map_CrackedBladeAzula
+		- map_TheSpecialistsDojo
+		- map_DieByTheLava
+		- map_Castle
+		- map_SailShip
+	- Example modded scene value:
+		- Assets/MyMod/Scenes/map_example.unity
+- Fight opponents
+	- List of opponents that are spawned for the Fight
+- Fight Item Tier
+	- Just determines the background image for the fight preview
+	
+# FightOpponent:
+	- Enemy name
+		- Name of the enemy
+	- Default Moveset Name
+		- The name of the moveset that the spawned opponent will use
+			- If using basic movesets, then the name needs to be the unlocalized name of the moveset. Example values:
+				- moveset_basic_hatchets
+				- moveset_basic_bardiche
+				- moveset_basic_sword_and_shield
+				- moveset_basic_longsword
+				- moveset_basic_halberd
+				- moveset_basic_katana
+				- moveset_basic_katar
+				- moveset_basic_zweihander
+				- moveset_basic_rapier
+				- moveset_basic_daneaxe
+				- moveset_basic_daggers
+				- moveset_basic_gladius_and_scutum
+				- moveset_basic_spear
+				- moveset_basic_kilij
+				- moveset_basic_twinblade
+				- moveset_basic_naginata
+				- moveset_basic_hook_swords
+				- moveset_basic_falx
+				- moveset_basic_sica_and_shield
+				- moveset_basic_podao
+				- moveset_basic__short_spear_and_gourang
+				- moveset_basic_kanabo
+				- moveset_basic_mace_and_shield
+				- moveset_basic_quarterstaff
+				- moveset_basic_short_staff
+				- moveset_basic_goedendag
+				- moveset_basic_mallet
+				- moveset_basic_battleaxe
+				- moveset_basic_pugilist
+				- moveset_basic_lucerne_hammer
+				- moveset_basic_guandao
+				- moveset_basic_pollaxe
+				- moveset_basic_prisoners_machetes
+	- Moveset Mod ID:
+		- If the named moveset is a moveset distributed via a mod, then the mods ID needs to be added here
+	- Equipped equipment
+		- Allows you to modify the equipment loadout for the Moveset
+		- If left empty, will use the movesets default equipment
+		- Position Int: EquipmentPosition for the equipment. You can find the possible EquipmentPosition values below
+		- Equipment Type Int: The equipment for the position. You can find the possible EquipmentType values below
+		- Equipment Start Hold Type Int: (0 = default hold, 1 = reverse grip)
+		- Equipment Start Hold Position: Position on the handle where the weapon should be grabbed. Value should be between -1 - 1 (default = 0)
+		- For modded equipment:
+			- Set Equipment Type Int to be 45
+			- Fill the full equipment path
+	- Full Moveset Json
+		- Instead of providing a name and mod id of a move, you can simply paste the entire moveset here
+	- Character customization settings
+		- Material settings
+			- Selected Material: (0 = none, 1 = leather, 2 = fabric, 3 = copper, 4 = metal, 5 = paper, 6 = scratched paper, 7 = wood )
+			- Use Material Diffuse: Do we use material color or custom texture color
+		- Custom texture: Name of a custom texture
+		- Type of the texture: Select mod if the texture is loaded through mods
+		- Image texture:
+			- Instead of providing the name of a texture, you can add the texture here and it will be provided as a part of the campaign file
+
+EquipmentPosition:
+- HandLeft = 0
+- HandRight = 1
+- Helmet = 2
+- ThighLeft = 3
+- ThighRight = 4
+- LegLeft = 5
+- LegRight = 6
+- Chest = 7
+- BicepRight = 8
+- BicepLeft = 9
+- ArmRight = 10
+- ArmLeft = 11
+- Stomach = 12
+- Hip = 13
+    
+EquipmentType:
+- Spear = 0
+- Shield = 1
+- ShortSword = 2
+- Rapier = 3
+- BeardedAxe = 4
+- SteelSlab = 5
+- GreatHelmet = 6
+- Cuisses = 7
+- Greaves = 8
+- Cuirass = 9
+- Vambrace = 10
+- Rerebrace = 11
+- Plackart = 12
+- Faulds = 13
+- Bardiche = 14
+- Dagger = 15
+- Katana = 16
+- Halberd = 17
+- Katar = 18
+- Zweihander = 19
+- DaneAxe = 20
+- Longsword = 21
+- Gladius = 22
+- Scutum = 23
+- Claymore = 24
+- NasalSpangenhelm = 25
+- KettleHelmet = 26
+- Twinblade = 27
+- Kilij = 28
+- Naginata = 29
+- HookSword = 30
+- Falx = 31
+- Sica = 32
+- Parma = 33
+- Podao = 34
+- ShortSpear = 35
+- GouRang = 36
+- Kanabo = 37
+- Mace = 38
+- BoStaff = 39
+- JoStaff = 40
+- Mallet = 41
+- Goedendag = 42
+- RomanHelmet = 43
+- BattleAxe = 44
+- Modded = 45
+- Bracer = 46
+- Pollaxe = 47
+- CuirassFull = 48
+- LucerneHammer = 49
+- PlackartFull = 50
+- Guandao = 51
+- PrisonersMachete = 52
+- PrisonersMask = 53
+
+
+- Once you have created a campaign simply select: Tools->Build Campaigns
+- You can find the generated campaing file in the same GladioMoriSDK/AssetBundleOutput folder as other mod outputs
+- Each campaign file will have one "*.gmcampaign" file 
+- You can include multiple campaigns in a single mod

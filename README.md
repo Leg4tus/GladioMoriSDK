@@ -6,7 +6,8 @@
 
 Renaming the folder is important so that there are no conflicting asset paths with other mods
 
-
+# Creating campaigns:
+- Check out the Custom_Campaing_Readme.md
 
 
 # Creating arenas:
@@ -135,7 +136,7 @@ Renaming the folder is important so that there are no conflicting asset paths wi
 
 # Testing:<br/>
 - Create a folder at the root of your GladioMori installation called "Mods/{yourModName}"<br/>
-- Copy your asset bundle (maps/equipment) file into this folder<br/>
+- Copy your asset bundle (maps/equipment/campaign) file into this folder<br/>
 - Start Gladio Mori<br/>
 - Your map/equipment should be loaded into use<br/>
 
@@ -155,6 +156,8 @@ Renaming the folder is important so that there are no conflicting asset paths wi
   - Should contain a asset bundle called "maps". These are automatically loaded by clients when joining a server.
 - Equipment:
   - Should contain a asset bundle called "equipment". These are automatically loaded by clients when joining a server.
+- Campaign:
+  - Should contain a ".gmcampaign" file.
 
 # Getting your mod to console:
 
