@@ -23,5 +23,5 @@ MonoBehaviour:
       useMaterialDiffuse: 0
     customTexture: 
     customTextureType: 2
-    imageTexture: {fileID: 2800000, guid: 0f26a61d377e02b43b151c27a276aac4, type: 3}
+    imageTexture: {fileID: 0}
     customTextureBase64: 

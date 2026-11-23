@@ -13,7 +13,7 @@ public class FightOpponent : ScriptableObject
 
     public string defaultMovesetName;
 
-    public string modID; //movesetsModID
+    public string movesetModID; //movesetsModID
 
     public List<EquippedEquipment> equippedEquipment = new List<EquippedEquipment>();
 
