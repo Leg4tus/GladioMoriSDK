@@ -157,7 +157,7 @@ Renaming the folder is important so that there are no conflicting asset paths wi
   - Should contain a asset bundle called "equipment". These are automatically loaded by clients when joining a server.
 
 # Getting your mod to console:
-
+- Only use file types that Unity understands natively. For example fbx files will work. Blend files will not work.
 - Make sure that your project is in a state that it builds the asset bundle correctly
 - Test your asset bundle locally
 - Create an asset package in unity of all your project files
